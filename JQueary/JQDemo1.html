@@ -1,0 +1,108 @@
+<html>
+<head>
+    <style>
+        #d1{
+            background-color: red;
+            height:300px;
+            width: 300px;
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
+		
+    <script type="text/javascript">
+        $(document).ready(function (){
+
+            // for hide show button
+            $("#btnShow").attr('disabled',true);
+
+
+            // hide show button
+            $('#btnHide').click(function(){
+                
+                    $('#d1').hide(2000);
+                    $("#btnShow").attr('disabled',false);
+                    $(this).attr('disabled',true);
+                    $('#btnToggle').text('Show');
+
+            });
+
+            $('#btnShow').click(function(){
+                
+                $('#d1').show(2000);
+                $("#btnHide").attr('disabled',false);
+                $(this).attr('disabled',true);
+                $('#btnToggle').text('Hide');
+            
+            });
+
+            // toggle btn
+            $('#btnToggle').click(function(){
+                $('#d1').toggle(2000);
+
+                if($('#btnToggle').text()=="Hide"){
+                    $("#btnToggle").text("Show");
+                    $("#btnShow").attr('disabled',false);
+					$("#btnHide").attr('disabled',true);
+                }
+                else{
+                    $('#btnToggle').text("Hide");
+                    $("#btnShow").attr('disabled',true);
+					$("#btnHide").attr('disabled',false);
+
+                }
+
+            });
+
+            // pluse minus buttn
+            $('#btnPlus').click(function(){
+                
+                var HW=parseInt($("#d1").css('height'));
+                if(HW<=500){
+                HW+=10;
+                $('#d1').css('height',HW);
+                $('#d1').css('width',HW);
+                }
+                else{
+                    alert("Maximum Size");
+                }
+
+            });
+            $('#btnMinus').click(function(){
+                
+                var HW=parseInt($("#d1").css('height'));
+                if(HW>=20){
+                HW-=10;
+                $('#d1').css('height',HW);
+                $('#d1').css('width',HW);
+                }
+                else{
+                    alert("Minum Size");
+                }
+
+            });
+
+        });
+
+    </script>
+
+</head>
+
+<body>
+    
+    <div id="d1"></div><hr> 
+    <button id="btnHide">Hide</button>
+    <button id="btnShow">Show</button><hr>
+
+    <button id="btnToggle">Hide</button><hr>
+
+    <button id="btnPlus" style="font-size:xx-large">+</button>
+    <button id="btnMinus" style="font-size:xx-large">- </button>
+
+
+
+</body>
+
+
+
+</html>

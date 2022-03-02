@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
+
+    <style>
+        div{
+           
+            height: 100px;
+            width: 100px;
+            margin-bottom: 10px;
+            display: none;
+
+        }
+        #d1{
+            background-color: red;
+        }
+        #d2{
+            background-color: yellow;
+        }
+        #d3{
+            background-color: blue;
+        }
+
+    </style>
+
+    <script>
+        $(document).ready(function(){
+
+            $('#b2').attr("disabled",true); //for disabled button fade out
+
+            //fade in button
+            $('#b1').click(function(){
+                $("#d1").fadeIn(1000);
+                $("#d2").fadeIn(2000);
+                $("#d3").fadeIn(3000);
+                $('#b2').attr("disabled",false);
+                $(this).attr('disabled',true);
+            });
+
+            //fade out button
+            $('#b2').click(function(){
+                $('#b1').attr("disabled",false);
+                $(this).attr('disabled',true);
+                $("#d1").fadeOut(1000);
+                $("#d2").fadeOut(2000);
+                $("#d3").fadeOut(3000);
+
+            });
+
+            //toggle button 
+            $('#b3').click(function(){
+                $("#d1").fadeToggle(1000);
+                $("#d2").fadeToggle(2000);
+                $("#d3").fadeToggle(3000);
+
+
+            });
+
+
+
+
+
+
+
+        });
+
+    </script>
+   
+    
+</head>
+
+<body>
+    <button id="b1">Click Me Fade IN</button>
+    <button id="b2">Click Me Fade Out</button>
+    <button id="b3">Click Me Fade IN/Out</button><br><br>
+    <div id="d1"></div>
+    <div id="d2"></div>
+    <div id="d3"></div>
+
+
+    
+</body>
+</html>
